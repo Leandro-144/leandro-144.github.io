@@ -1,0 +1,89 @@
+body 
+{
+    background-image: url(https://wallpaper4k.com.br/wp-content/uploads/2022/10/wallpapers-preto-em-4k-51-scaled.jpg);
+    
+}
+
+.fundo
+{
+    background-color: white;
+}
+
+.image-container 
+{
+    width: 500px;
+    background-color:#201f1f;
+    color: white;
+    text-align: center;
+    margin-top: 120px;
+    padding-top: 30px;
+}
+ul
+{
+    display: flex;
+    justify-content: space-around;
+}
+.details
+{
+    background-color:#201f1f;
+    color: white;
+}
+.imagem
+{
+    text-align: center;
+}
+.dropdown-toggle
+{
+    text-align: center;
+}
+.figure-border 
+{
+    border: 2px solid #646464;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.figure-caption
+{
+    color: white;
+}
+.custom-navbar 
+{
+    background-color: #201f1f;
+}
+
+.custom-navbar .navbar-nav .nav-link
+{
+    color: #ffffff;
+}
+
+.navbar .nav-item.active 
+{
+    
+    color: rgb(0, 0, 0);
+}
+.text-custom {
+    color: #ffffff;
+  }
+
+.figure-border 
+{
+    border: 2px solid #ccc;
+    padding: 10px;
+    border-radius: 16px;
+    margin-bottom: 10px;
+}
+
+input[type="text"] 
+{
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.degra 
+{
+    background: linear-gradient(to right, #1b0bc6, #be0a16);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

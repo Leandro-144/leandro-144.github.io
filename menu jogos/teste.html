@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Inscrição</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css0.css">
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+        <h2 class="degra" href="#">Menu de jogos&nbsp;&nbsp;&nbsp;</h2>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" style="border-color: rgb(0, 0, 0); background-color: rgb(177, 44, 44);"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav" style="text-align: right;">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <h5><a class="nav-link" href="codigo.html">Jogos</a></h5>
+                </li>
+                <li class="nav-item">
+                    <h5><a class="nav-link" href="devs.html">Desenvolvedores</a></h5>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"></a>
+                </li>
+                
+            </ul>
+        </div>
+        <form action="/pesquisar" style="text-align: center;" method="get">
+            <label for="pesquisa" class="text-custom">🔍</label>
+            <input type="text" id="pesquisa" name="q" placeholder="Pesquisar" required>
+            <button type="submit" style="background-color: rgb(28, 27, 27); color: white; border-color: rgb(255, 255, 255);">Buscar</button>
+        </form>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Usuário
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Login</a>
+                <a class="dropdown-item" href="#">Configurações</a>
+                <a class="dropdown-item" href="#">Perfil</a>
+            </div>
+        </div>
+    </nav>
+    <br><br>
+    <div class="imagem">
+        <img src="imagens/desenvolvimento tibetano.jpg" alt="quiz"  class ="imagem" >
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
