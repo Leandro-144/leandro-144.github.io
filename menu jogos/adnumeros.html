@@ -6,15 +6,13 @@
     <title>Formulário de Inscrição</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css0.css">
-
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
         <h2 class="degra" href="#">Menu de jogos&nbsp;&nbsp;&nbsp;</h2>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" style="border-color: white;"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
             <span class="navbar-toggler-icon"></span>
-        </button>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav" style="text-align: right;">
             <ul class="navbar-nav">
@@ -27,31 +25,104 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#"></a>
                 </li>
-                
             </ul>
         </div>
         <form action="/pesquisar" style="text-align: center;" method="get">
             <label for="pesquisa" class="text-custom">🔍</label>
             <input type="text" id="pesquisa" name="q" placeholder="Pesquisar" required>
             <button type="submit" style="background-color: rgb(28, 27, 27); color: white; border-color: rgb(255, 255, 255);">Buscar</button>
-        </form>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+        </form>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
         <div class="dropdown">
             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Usuário
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="#">Login</a>
-                <a class="dropdown-item" href="#">Configurações</a>
+                <a class "dropdown-item" href="#">Configurações</a>
                 <a class="dropdown-item" href="#">Perfil</a>
             </div>
         </div>
     </nav>
-    <br><br>
-    <div class="imagem">
-        <img src="imagens/desenvolvimento adnumeros.jpg" alt="quiz"  class ="imagem" width="1100" height="600">
+    <br>
+    <div class="container">
+        <h1 class="text-center" style="color: white;">Advinhe o Número</h1>
+        <div class="form-group">
+            <label for="level">Escolha o nível de dificuldade:</label>
+            <select class="form-control" id="level">
+                <option value="10">Fácil (1-10)</option>
+                <option value="20">Médio (1-20)</option>
+                <option value="50">Intermediário (1-50)</option>
+                <option value="100">Difícil (1-100)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="guess">Tente adivinhar o número:</label>
+            <input type="number" class="form-control" id="guess" min="1">
+        </div>
+        <button class="btn btn-primary btn-block" id="submit">Enviar Palpite</button>
+        <p id="message" class="text-center"></p>
+        <p id="attempts" class="text-center"></p>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let level = 10;
+            let numberToGuess = generateRandomNumber(level);
+            let attempts = 0;
+            const submitButton = document.getElementById('submit');
+            const guessInput = document.getElementById('guess');
+            const message = document.getElementById('message');
+            const attemptsCounter = document.getElementById('attempts');
+
+            document.getElementById('level').addEventListener('change', function () {
+                level = parseInt(this.value);
+                numberToGuess = generateRandomNumber(level);
+                resetGame();
+            });
+
+            submitButton.addEventListener('click', function () {
+                checkGuess();
+            });
+
+            guessInput.addEventListener('keyup', function(event) {
+                if (event.key === 'Enter') {
+                    checkGuess();
+                }
+            });
+
+            function checkGuess() {
+                const userGuess = parseInt(guessInput.value);
+
+                attempts++;
+
+                if (userGuess === numberToGuess) {
+                    message.innerHTML = `Parabéns! Você acertou em ${attempts} tentativa(s).`;
+                    message.className = "text-success";
+                    submitButton.disabled = true;
+                } else if (userGuess < numberToGuess) {
+                    message.innerHTML = "Tente um número mais alto.";
+                    message.className = "text-warning";
+                } else {
+                    message.innerHTML = "Tente um número mais baixo.";
+                    message.className = "text-warning";
+                }
+
+                attemptsCounter.innerHTML = `Tentativas: ${attempts}`;
+            }
+
+            function resetGame() {
+                numberToGuess = generateRandomNumber(level);
+                message.innerHTML = '';
+                attemptsCounter.innerHTML = '';
+                submitButton.disabled = false;
+                guessInput.value = '';
+                attempts = 0;
+            }
+
+            function generateRandomNumber(max) {
+                return Math.floor(Math.random() * max) + 1;
+            }
+        });
+    </script>
 </body>
 </html>
