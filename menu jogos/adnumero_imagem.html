@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Inscrição</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css0.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+        <h2 class="degra" href="#">Menu de jogos&nbsp;&nbsp;&nbsp;</h2>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" style="border-color: white;"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav" style="text-align: right;">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <h5><a class="nav-link" href="codigo.html">Jogos</a></h5>
+                </li>
+                <li class="nav-item">
+                    <h5><a class="nav-link" href="devs.html">Desenvolvedores</a></h5>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"></a>
+                </li>
+            </ul>
+        </div>
+        <form action="/pesquisar" style="text-align: center;" method="get">
+            <label for="pesquisa" class="text-custom">🔍</label>
+            <input type="text" id="pesquisa" name="q" placeholder="Pesquisar" required>
+            <button type="submit" style="background-color: rgb(28, 27, 27); color: white; border-color: rgb(255, 255, 255);">Buscar</button>
+        </form>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Usuário
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Login</a>
+                <a class "dropdown-item" href="#">Configurações</a>
+                <a class="dropdown-item" href="#">Perfil</a>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <form id="form">
+		<div class="container-fluid" id="titulo">
+			<div class="row">
+				<div class="col-12" align="center"> 
+					<div class="jumbotron myclass">
+						<h1 class="display-4">Adivinha Número</h1>
+						<p class="subtitle">Um jogo onde você escolhe um número, e nós adivinhamos.</p>
+						<hr class="my-4">
+						<a href="codigo.html" class="btn btn-danger " id="button">Voltar</a>
+						</p>
+					</div>
+				</div>					
+			</div>			
+		</div>
+		<div class="container-fluid">
+			<div class="col-12" align="center" >
+				<div class="card" style="width: 590px;" id="imagem">
+					<img src="imagens/n_principal.png" >
+					<h3>Identifique seu número nas imagens abaixo!!!</h3>
+				</div>
+				<div class="card" style="width: 590px;" id="imagem">
+					<img src="imagens/n_carta1.png" >
+					<h3>Seu número aparece aqui???</h3>
+					<hr class="my-4">
+					<input type="radio" name="op1" value="1">Sim
+					<input type="radio" name="op1" value="0">Não			
+				</div>
+				<div class="card" style="width: 590px;" id="imagem">
+					<img src="imagens/n_carta2.png">
+					<h3>Seu número aparece aqui???</h3>
+					<hr class="my-4">
+					<input type="radio" name="op2" value="1">Sim
+					<input type="radio" name="op2" value="0">Não
+				</div>
+				<div class="card" style="width: 590px;" id="imagem">
+					<img src="imagens/n_carta3.png">
+					<h3>Seu número aparece aqui??</h3>
+					<hr class="my-4">
+					<input type="radio" name="op3" value="1">Sim
+					<input type="radio" name="op3" value="0">Não
+				</div>
+				<div class="card" style="width: 590px;" id="imagem">
+					<img src="imagens/n_carta4.png">
+					<h3>Seu número aqui???</h3>
+					<hr class="my-4">
+					<input type="radio" name="op4" value="1">Sim
+					<input type="radio" name="op4" value="0">Não
+				</div>
+				<div class="card" style="width: 590px;" id="imagem">
+					<img src="imagens/n_carta5.png">
+					<h3>Seu número aqui???</h3>
+					<hr class="my-4">
+					<input type="radio" name="op5" value="1">Sim
+					<input type="radio" name="op5" value="0">Não
+				</div>
+				<div class="jumbotron">
+					<h3 class="display-5">Responda corretamente ou o resultado será prejudicado</h3>
+					<hr class="my-4">
+					<input class="btn btn-danger" type="submit" value="Resultado" id="botao" onclick="respostas()">
+					<input class="btn btn-danger" type="reset"value="Redefinir">
+				</div>
+			</div>	 
+		</div>
+	</form>
+	<script>
+		function respostas(){
+
+			
+			var posicao=0;
+
+			var resp1 = document.querySelector('input[name="op1"]:checked').value;
+			if (resp1 == 1) posicao = posicao+1;
+
+			var resp2 = document.querySelector('input[name="op2"]:checked').value;
+			if (resp2 == 1) posicao = posicao+2;
+
+			var resp3 = document.querySelector('input[name="op3"]:checked').value;
+			if (resp3 == 1) posicao = posicao+4;
+
+			var resp4 = document.querySelector('input[name="op4"]:checked').value;
+			if (resp4 == 1) posicao = posicao+8;
+
+			var resp5 = document.querySelector('input[name="op5"]:checked').value;
+			if (resp5 == 1) posicao = posicao+16;
+
+			if(posicao > 0)
+			{
+
+			final = alert('o número que você pensou foi '+ posicao + '. Caso contrário você respondeu errado');
+	
+			}else alert('Você não escolheu nenhuma carta, ou respondeu de forma incorreta!!!');
+			
+			
+		};
+		
+		</script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/site.js"></script>
+
+</body>
+</html>
