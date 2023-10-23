@@ -6,15 +6,13 @@
     <title>Formulário de Inscrição</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css0.css">
-
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
         <h2 class="degra" href="#">Menu de jogos&nbsp;&nbsp;&nbsp;</h2>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" style="border-color: white;"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
             <span class="navbar-toggler-icon"></span>
-        </button>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav" style="text-align: right;">
             <ul class="navbar-nav">
@@ -27,31 +25,154 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#"></a>
                 </li>
-                
             </ul>
         </div>
         <form action="/pesquisar" style="text-align: center;" method="get">
             <label for="pesquisa" class="text-custom">🔍</label>
             <input type="text" id="pesquisa" name="q" placeholder="Pesquisar" required>
             <button type="submit" style="background-color: rgb(28, 27, 27); color: white; border-color: rgb(255, 255, 255);">Buscar</button>
-        </form>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+        </form>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
         <div class="dropdown">
             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Usuário
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="#">Login</a>
-                <a class="dropdown-item" href="#">Configurações</a>
+                <a class "dropdown-item" href="#">Configurações</a>
                 <a class="dropdown-item" href="#">Perfil</a>
             </div>
         </div>
     </nav>
-    <br><br>
-    <div class="imagem">
-        <img src="imagens/desenvolvimento adimagem.jpg" alt="quiz"  class ="imagem" >
-    </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <br>
+    <form id="form">
+		<div class="container-fluid" id="titulo">
+			<div class="row">
+				<div class="col-12" align="center"> 
+					<div class="jumbotron myclass">
+						<h1 class="display-4">Adivinha cartas</h1>
+						<p class="subtitle">Um jogo onde você escolhe a carta de um cantor, e nós adivinhamos.</p>
+						<hr class="my-4">
+						<a href="index.html" class="btn btn-danger " id="button">Voltar</a>
+						</p>
+					</div>
+				</div>					
+			</div>			
+		</div>
+		<div class="container-fluid">
+			<div class="col-12" align="center" >
+				<div class="card" style="width: 590px;" id="imagem">
+					<img src="imagens/principal.png" >
+					<h3>Escolha uma carta!!!</h3>
+				</div>
+				<div id="pad"></div>
+				<div class="card" style="width: 590px;" id="imagem">
+					<img src="imagens/carta1.png" >
+					<h3>Sua carta aparece aqui???</h3>
+					<hr class="my-4">
+					<input type="radio" name="op1" value="1">Sim
+					<input type="radio" name="op1" value="0">Não			
+				</div>
+				<div id="pad"></div>
+				<div class="card" style="width: 590px;" id="imagem">
+					<img src="imagens/carta2.png">
+					<h3>Sua carta aparece aqui???</h3>
+					<hr class="my-4">
+					<input type="radio" name="op2" value="1">Sim
+					<input type="radio" name="op2" value="0">Não
+				</div>
+				<div id="pad"></div>
+				<div class="card" style="width: 590px;" id="imagem">
+					<img src="imagens/carta3.png">
+					<h3>Sua carta aparece aqui???</h3>
+					<hr class="my-4">
+					<input type="radio" name="op3" value="1">Sim
+					<input type="radio" name="op3" value="0">Não
+				</div>
+				<div id="pad"></div>
+				<div class="card" style="width: 590px;" id="imagem">
+					<img src="imagens/carta4.png">
+					<h3>Sua carta aparece aqui???</h3>
+					<hr class="my-4">
+					<input type="radio" name="op4" value="1">Sim
+					<input type="radio" name="op4" value="0">Não
+				</div>
+				<div id="pad"></div>
+				<div class="jumbotron">
+					<h3 class="display-5">Responda corretamente ou o resultado será prejudicado</h3>
+					<hr class="my-4">
+					<input class="btn btn-danger" type="submit" value="Resultado" id="botao" onclick="respostas()">
+					<input class="btn btn-danger" type="reset"value="Redefinir">
+				</div>
+			</div>	 
+		</div>
+	</form>
+	<script> 
+		function respostas(){
+
+			alert('blz, já sei');
+			var posicao=0;
+
+			var resp1 = document.querySelector('input[name="op1"]:checked').value;
+			if (resp1 == 1) posicao = posicao+1;
+
+			var resp2 = document.querySelector('input[name="op2"]:checked').value;
+			if (resp2 == 1) posicao = posicao+2;
+
+			var resp3 = document.querySelector('input[name="op3"]:checked').value;
+			if (resp3 == 1) posicao = posicao+8;
+
+			var resp4 = document.querySelector('input[name="op4"]:checked').value;
+			if (resp4 == 1) posicao = posicao+4;
+
+			if(posicao > 0)
+			{
+
+			document.write('<div style="background-color: #333366"><center>');
+			document.write('<h1>Sua carta é essa!!!"</h1>');
+				if(posicao==1) document.write('<img src="imagens/1.png" style="width: 690px;" />');
+				if(posicao==2) document.write('<img src="imagens/2.png" style="width: 690px;" />');
+				if(posicao==3) document.write('<img src="imagens/3.png" style="width: 690px;" />');
+				if(posicao==4) document.write('<img src="imagens/4.png" style="width: 690px;" />');
+				if(posicao==5) document.write('<img src="imagens/5.png" style="width: 690px;" />');
+				if(posicao==6) document.write('<img src="imagens/6.png" style="width: 690px;" />');
+				if(posicao==7) document.write('<img src="imagens/7.png" style="width: 690px;" />');
+				if(posicao==8) document.write('<img src="imagens/8.png" style="width: 690px;" />');
+				if(posicao==9) document.write('<img src="imagens/9.png" style="width: 690px;" />');
+				if(posicao==10) document.write('<img src="imagens/10.png" style="width: 690px;" />');
+				if(posicao==11) document.write('<img src="imagens/11.png" style="width: 690px;" />');
+				if(posicao==12) document.write('<img src="imagens/12.png" style="width: 690px;" />');
+				if(posicao==13) document.write('<img src="imagens/13.png" style="width: 690px;" />');
+				if(posicao==14) document.write('<img src="imagens/14.png" style="width: 690px;" />');
+				if(posicao==15) document.write('<img src="imagens/15.png" style="width: 690px;" />');
+
+				if(posicao==1) document.write('<h2 style=" color: white;" >Serj Tankian</h2>');
+				if(posicao==2) document.write('<h2 style=" color: white;" >Amy Lee</h2>');
+				if(posicao==3) document.write('<h2 style=" color: white;" >Dinho</h2>');
+				if(posicao==4) document.write('<h2 style=" color: white;" >Jimi Hendrix</h2>');
+				if(posicao==5) document.write('<h2 style=" color: white;" >Dan Reynolds</h2>');
+				if(posicao==6) document.write('<h2 style=" color: white;" >John Cooper</h2>');
+				if(posicao==7) document.write('<h2 style=" color: white;" >John Lennon</h2>');
+				if(posicao==8) document.write('<h2 style=" color: white;" >Axl Rose</h2>');
+				if(posicao==9) document.write('<h2 style=" color: white;" >James Hetfield</h2>');
+				if(posicao==10) document.write('<h2 style=" color: white;" >Dave Mustaine</h2>');
+				if(posicao==11) document.write('<h2 style=" color: white;" >Briam Johnson</h2>');
+				if(posicao==12) document.write('<h2 style=" color: white;" >Edu Falaschi</h2>');
+				if(posicao==13) document.write('<h2 style=" color: white;" >Jon Bon Jovi</h2>');
+				if(posicao==14) document.write('<h2 style=" color: white;" >Freddie Mercury</h2>');
+				if(posicao==15) document.write('<h2 style=" color: white;" >Chester Bennington</h2>');
+			document.write('<a href="" style="color: white; font-size: 24px;" ">Jogar Novamente</a>');
+			document.write('</center></div>');
+
+			}else alert('Você não escolheu nenhuma carta, ou respondeu de forma incorreta!!!');
+			
+			
+		};
+		
+		</script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/site.js"></script>
+
 </body>
 </html>
