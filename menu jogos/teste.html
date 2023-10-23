@@ -6,6 +6,15 @@
     <title>Formulário de Inscrição</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css0.css">
+    <style>
+        body {
+            color: white;
+        }
+
+        .jumbotron {
+            background-color: rgba(31, 29, 29, 0.8);
+        }
+    </style>
 
 </head>
 <body>
@@ -47,11 +56,98 @@
         </div>
     </nav>
     <br><br>
-    <div class="imagem">
-        <img src="imagens/desenvolvimento tibetano.jpg" alt="quiz"  class ="imagem" >
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mt-4">
+                <div class="jumbotron">
+                    <h1 class="display-4">Teste Tibetano - Carro Ideal</h1>
+                    <p class="lead">Responda a algumas perguntas para descobrir qual é o carro ideal para você.</p>
+                </div>
+            </div>
+        </div>
+        <form id="carroIdealForm">
+            <div class="form-group">
+                <label for="pergunta1">Pergunta 1: O que você valoriza mais em um carro?</label>
+                <select class="form-control" id="pergunta1">
+                    <option value="1">Economia de combustível</option>
+                    <option value="2">Desempenho e velocidade</option>
+                    <option value="3">Espaço e conforto</option>
+                    <option value="4">Tecnologia e recursos avançados</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="pergunta2">Pergunta 2: Qual é o seu orçamento?</label>
+                <select class="form-control" id="pergunta2">
+                    <option value="1">Menos de R$ 50.000</option>
+                    <option value="2">R$ 50.000 - R$ 100.000</option>
+                    <option value="3">R$ 100.000 - R$ 200.000</option>
+                    <option value="4">Mais de R$ 200.000</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="pergunta3">Pergunta 3: Qual é a sua prioridade em termos de segurança?</label>
+                <select class="form-control" id="pergunta3">
+                    <option value="1">Airbags e controles de tração</option>
+                    <option value="2">Assistência à condução avançada</option>
+                    <option value="3">Capacidade de frenagem e estabilidade</option>
+                    <option value="4">Nenhum interesse em recursos de segurança</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="pergunta4">Pergunta 4: Qual é o seu estilo de vida?</label>
+                <select class="form-control" id="pergunta4">
+                    <option value="1">Cidade e deslocamentos curtos</option>
+                    <option value="2">Estradas e viagens longas</option>
+                    <option value="3">Aventura e off-road</option>
+                    <option value="4">Pouco uso do carro</option>
+                </select>
+            </div>
+
+            <button type="button" class="btn btn-primary" id="calcularResultado">Calcular Resultado</button>
+            <input class="btn btn-danger" type="reset" value="Redefinir">
+        </form>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="jumbotron" id="resultado" style="display: none;">
+                    <h2>Seu carro ideal é:</h2>
+                    <h1 id="carroIdeal"></h1>
+                </div>
+            </div>
+        </div>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function calcularResultado() {
+            const pergunta1 = parseInt(document.getElementById("pergunta1").value);
+            const pergunta2 = parseInt(document.getElementById("pergunta2").value);
+            const pergunta3 = parseInt(document.getElementById("pergunta3").value);
+            const pergunta4 = parseInt(document.getElementById("pergunta4").value);
+
+            const resultado = pergunta1 + pergunta2 + pergunta3 + pergunta4;
+
+            let carroIdeal = "Carro desconhecido";
+            if (resultado >= 4 && resultado <= 6) {
+                carroIdeal = "Carro econômico e prático.";
+            } else if (resultado >= 7 && resultado <= 9) {
+                carroIdeal = "Carro esportivo e potente.";
+            } else if (resultado >= 10 && resultado <= 12) {
+                carroIdeal = "Carro espaçoso e confortável.";
+            } else if (resultado >= 13) {
+                carroIdeal = "Carro de alta tecnologia e segurança.";
+            }
+
+            document.getElementById("carroIdeal").textContent = carroIdeal;
+            document.getElementById("resultado").style.display = "block";
+        }
+
+        document.getElementById("calcularResultado").addEventListener("click", calcularResultado);
+    </script>
 </body>
 </html>
