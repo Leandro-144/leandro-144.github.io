@@ -3,10 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário de Inscrição</title>
+    <title>Quiz de Carros</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css0.css">
-
+    <style>
+        .correct {
+            color: green;
+            font-weight: bold;
+        }
+        .wrong {
+            color: red;
+            text-decoration: line-through;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
@@ -46,10 +55,135 @@
             </div>
         </div>
     </nav>
-    <br>
-    <div class="imagem">
-        <img src="imagens/desenvolvimento quiz.jpg" alt="quiz"  class ="imagem" width="1100" height="600">
+    <br><br>
+    <div class="container">
+        <h1 class="mt-5 text-center" style="color: white;">Quiz de Carros</h1>
+
+        <form id="carQuiz">
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">1. Qual marca de carro produz o modelo "Mustang"?</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="question1" id="q1a2" value="0">
+                        <label class="form-check-label" for="q1a2">Chevrolet</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="question1" id="q1a2" value="0">
+                        <label class="form-check-label" for="q1a2">Toyota</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="question1" id="q1a1" value="1">
+                        <label class="form-check-label" for="q1a1">Ford</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">2. A Ferrari foi criada em qual país?</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="question2" id="q2a1" value="2">
+                        <label class="form-check-label" for="q2a1">Espanha</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="question2" id="q2a1" value="1">
+                        <label class="form-check-label" for="q2a1">Itália</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="question2" id="q2a2" value="0">
+                        <label class="form-check-label" for="q2a2">Japão</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">3. Qual fabricante de automóveis é conhecido pelo modelo "911"?</h5>
+                    
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="question3" id="q3a2" value="0">
+                        <label class="form-check-label" for="q3a2">Jeep</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="question3" id="q3a1" value="1">
+                        <label class="form-check-label" for="q3a1">Porsche</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="question3" id="q3a1" value="2">
+                        <label class="form-check-label" for="q3a1">Nissan</label>
+                    </div>
+                </div>
+            </div>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">4. Qual é a marca com carros mais vendidos do mundo?</h5>
+                    
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="question4" id="q4a2" value="1">
+                        <label class="form-check-label" for="q4a2">Toyota</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="question4" id="q4a1" value="0">
+                        <label class="form-check-label" for="q4a1">Chevrolet</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="question4" id="q4a1" value="2">
+                        <label class="form-check-label" for="q4a1">Volkswagen</label>
+                    </div>
+                </div>
+            </div>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">5. Qual é o carro mais rápido do mundo?</h5>
+                    
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="question5" id="q5a3" value="0">
+                        <label class="form-check-label" for="q5a0">Ferrari 812 Superfast</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="question5" id="q5a1" value="1">
+                        <label class="form-check-label" for="q5a1">Koenigsegg Agera RS</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="question5" id="q5a1" value="2">
+                        <label class="form-check-label" for="q5a1">Lamborghini Aventador</label>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-primary mt-4" onclick="gradeQuiz()">Ver Resultados</button>
+        </form>
+
+        <div id="result" class="mt-4 text-center" style="display: none;">
+            <h3>Seu resultado:</h3>
+            <p id="score"></p>
+        </div>
     </div>
+
+    <script>
+        function gradeQuiz() {
+            const answers = document.forms["carQuiz"];
+            let score = 0;
+
+            const correctAnswers = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+
+            for (let i = 0; i < answers.length; i++) {
+                if (answers[i].type === "radio") {
+                    const questionNum = i + 1;
+                    const selectedValue = parseInt(answers[i].value);
+                    if (selectedValue === correctAnswers[i]) {
+                        score += 1;
+                        answers[i].nextElementSibling.classList.add("correct");
+                    } else {
+                        answers[i].nextElementSibling.classList.add("wrong");
+                    }
+                }
+            }
+
+           
+        }
+    </script>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
