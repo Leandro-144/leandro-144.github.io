@@ -49,8 +49,8 @@
 			<div class="row">
 				<div class="col-12" align="center"> 
 					<div class="jumbotron myclass">
-						<h1 class="display-4">Adivinha cartas</h1>
-						<p class="subtitle">Um jogo onde você escolhe a carta de um cantor, e nós adivinhamos.</p>
+						<h1 class="display-4">Adivinha imagens</h1>
+						<p class="subtitle">Escolha um carro e irei adivinhar qual foi o carro escolhido por você</p>
 						<hr class="my-4">
 						<a href="index.html" class="btn btn-danger " id="button">Voltar</a>
 						</p>
@@ -61,40 +61,45 @@
 		<div class="container-fluid">
 			<div class="col-12" align="center" >
 				<div class="card" style="width: 590px;" id="imagem">
-					<img src="imagens/principal.png" >
 					<h3>Escolha uma carta!!!</h3>
+					<img src="imagens/principal.png" >
+					<br><br><br>
 				</div>
 				<div id="pad"></div>
 				<div class="card" style="width: 590px;" id="imagem">
-					<img src="imagens/carta1.png" >
 					<h3>Sua carta aparece aqui???</h3>
+					<img src="imagens/carta1.png" >
 					<hr class="my-4">
 					<input type="radio" name="op1" value="1">Sim
-					<input type="radio" name="op1" value="0">Não			
+					<input type="radio" name="op1" value="0">Não
+					<br><br><br>		
 				</div>
 				<div id="pad"></div>
 				<div class="card" style="width: 590px;" id="imagem">
-					<img src="imagens/carta2.png">
 					<h3>Sua carta aparece aqui???</h3>
+					<img src="imagens/carta2.png">
 					<hr class="my-4">
 					<input type="radio" name="op2" value="1">Sim
 					<input type="radio" name="op2" value="0">Não
+					<br><br><br>
 				</div>
 				<div id="pad"></div>
 				<div class="card" style="width: 590px;" id="imagem">
-					<img src="imagens/carta3.png">
 					<h3>Sua carta aparece aqui???</h3>
+					<img src="imagens/carta3.png">
 					<hr class="my-4">
 					<input type="radio" name="op3" value="1">Sim
 					<input type="radio" name="op3" value="0">Não
+					<br><br><br>
 				</div>
 				<div id="pad"></div>
 				<div class="card" style="width: 590px;" id="imagem">
-					<img src="imagens/carta4.png">
 					<h3>Sua carta aparece aqui???</h3>
+					<img src="imagens/carta4.png">
 					<hr class="my-4">
 					<input type="radio" name="op4" value="1">Sim
 					<input type="radio" name="op4" value="0">Não
+					<br><br><br>
 				</div>
 				<div id="pad"></div>
 				<div class="jumbotron">
@@ -127,7 +132,7 @@
 			if(posicao > 0)
 			{
 
-			document.write('<div style="background-color: #333366"><center>');
+			document.write('<center>');
 			document.write('<h1>Sua carta é essa!!!"</h1>');
 				if(posicao==1) document.write('<img src="imagens/1.png" style="width: 690px;" />');
 				if(posicao==2) document.write('<img src="imagens/2.png" style="width: 690px;" />');
@@ -163,7 +168,7 @@
 			document.write('<a href="" style="color: white; font-size: 24px;" ">Jogar Novamente</a>');
 			document.write('</center></div>');
 
-			}else alert('Você não escolheu nenhuma carta, ou respondeu de forma incorreta!!!');
+			}else alert('Você tem certeza de que respondeu certo?');
 			
 			
 		};
